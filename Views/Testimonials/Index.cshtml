@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Gym.Models.Testimonial>
+
+@{
+    Layout = "~/views/shared/AdminLayout.cshtml";
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center my-4">Testimonials Table</h1>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        
+            
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> Member Name </th>
+                                <th> Contect </th>
+                                <th> Testimonials Status </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach (var item in Model) {
+                            <tr>
+                                <td> @Html.DisplayFor(modelItem => item.User.Profile.Fname) @Html.DisplayFor(modelItem => item.User.Profile.Lname) </td>
+                                <td> @Html.DisplayFor(modelItem => item.Content) </td>
+                              
+                                <td>
+                                        @if (item.IsApprove)
+                                        {
+                                            <div class="badge badge-outline-success">Approved</div>
+                                        }else
+                                        {
+                                            <div class="badge badge-outline-danger">Rejected</div>
+                                        }
+
+                                </td>
+                            <td>
+                                @if (item.IsApprove)
+                                {
+                                    <a asp-controller="Admin" asp-action="Reject" asp-route-id="@item.Testimonialid" class="btn btn-outline-danger">Reject</a>
+
+                                }
+                                else
+                                {
+                                    <a asp-controller="Admin" asp-action="Approve" asp-route-id="@item.Testimonialid" class="btn btn-outline-success">Approve</a>
+
+                                }
+                                
+                            </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            
+        
+    </div>
+</div>

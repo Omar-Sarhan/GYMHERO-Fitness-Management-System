@@ -1,0 +1,220 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/views/shared/HomeLayout.cshtml";
+    var roleId = Context.Session.GetInt32("RoleId");
+    
+}
+
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="~/homedesign/img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h5 class="text-white text-uppercase">Best Gym Center</h5>
+                        <h1 class="display-2 text-white text-uppercase mb-md-4">Build Your Body Strong With Gymhero</h1>
+                        @if(roleId==null)
+                        {
+                            <a asp-controller="LoginAndRegister" asp-action="Login" class="btn btn-primary py-md-3 px-md-5 me-3">Join Us</a>
+                        }
+                        
+                        <a asp-action="Contact" asp-controller="Home" class="btn btn-light py-md-3 px-md-5">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="~/homedesign/img/carousel-2.png" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h5 class="text-white text-uppercase">Best Gym Center</h5>
+                        <h1 class="display-2 text-white text-uppercase mb-md-4">Grow Your Strength With Our Trainers</h1>
+                        @if (roleId == null)
+                        {
+                            <a asp-controller="LoginAndRegister" asp-action="Login" class="btn btn-primary py-md-3 px-md-5 me-3">Join Us</a>
+                        }
+                        <a asp-action="Contact" asp-controller="Home" class="btn btn-light py-md-3 px-md-5">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!-- Carousel End -->
+<!-- About Start -->
+<div class="container-fluid p-5">
+    <div class="row gx-5">
+        <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+            <div class="position-relative h-100">
+                <img class="position-absolute w-100 h-100 rounded" src="~/homedesign/img/about.jpg" style="object-fit: cover;">
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="mb-4">
+                <h5 class="text-primary text-uppercase">About Us</h5>
+                <h1 class="display-3 text-uppercase mb-0">Welcome to GymHero</h1>
+            </div>
+            <h4 class="text-body mb-4">WE ARE GYM AND FITNESS</h4>
+            <p class="mb-4">At Gym Hero, we focus on providing top-tier fitness services to help you achieve your health and fitness goals. Whether you're looking to build strength, improve your endurance, or maintain a healthy lifestyle, we have the tools and expertise to guide you every step of the way.</p>
+            <div class="rounded bg-dark p-5">
+                <ul class="nav nav-pills justify-content-between mb-3">
+                    <li class="nav-item w-50">
+                        <a class="nav-link text-uppercase text-center w-100 active" data-bs-toggle="pill" href="#pills-1">About Us</a>
+                    </li>
+                    <li class="nav-item w-50">
+                        <a class="nav-link text-uppercase text-center w-100" data-bs-toggle="pill" href="#pills-2">Why Choose Us</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="pills-1">
+                        <p class="text-secondary mb-0">Gym Hero is committed to offering a personalized fitness experience. Our team of expert trainers is dedicated to helping you reach your full potential. With state-of-the-art equipment and customized training plans, we ensure you get the best workout experience possible. Join us and take the first step toward becoming your strongest self.</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-2">
+                        <p class="text-secondary mb-0">At Gym Hero, we believe in fostering a supportive and motivating environment for all fitness levels. Whether you're just starting your fitness journey or you're a seasoned athlete, we provide the resources you need to succeed. With flexible membership options and a wide range of fitness classes, Gym Hero stands out as the go-to gym for anyone committed to their fitness goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Programe Start -->
+<div class="container-fluid programe position-relative px-5 mt-5" style="margin-bottom: 135px;">
+    <div class="row g-5 gb-5">
+        <div class="col-lg-4 col-md-6">
+            <div class="bg-light rounded text-center p-5">
+                <i class="flaticon-six-pack display-1 text-primary"></i>
+                <h3 class="text-uppercase my-4">Body Building</h3>
+                <p>Transform your physique with our expert-led bodybuilding programs. Whether you’re aiming for increased muscle mass or overall strength, we provide tailored workout plans to help you achieve your goals.</p>
+            
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="bg-light rounded text-center p-5">
+                <i class="flaticon-barbell display-1 text-primary"></i>
+                <h3 class="text-uppercase my-4">Weight Lefting</h3>
+                <p>Push your limits and build powerful strength with our weight lifting sessions. Our trainers will guide you through proper techniques to maximize gains and ensure safety throughout your lifting journey.</p>
+                
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="bg-light rounded text-center p-5">
+                <i class="flaticon-bodybuilding display-1 text-primary"></i>
+                <h3 class="text-uppercase my-4">Muscle Building</h3>
+                <p>Focus on muscle growth with a personalized program designed to help you achieve lean muscle mass. Our muscle-building routines are created to suit your body type and fitness level.</p>
+               
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-6 text-center">
+            <h1 class="text-uppercase text-light mb-4">30% Discount For This Summer</h1>
+            @if (roleId == null)
+            {
+
+                <a asp-action="Login" asp-controller="LoginAndRegister" class="btn btn-primary py-3 px-5">Become A Member</a>
+                
+            }
+            
+        </div>
+    </div>
+</div>
+<!-- Programe Start -->
+<!-- Class Timetable Start -->
+
+<!-- Class Timetable Start -->
+<!-- Facts Start -->
+
+<!-- Facts End -->
+<!-- Team Start -->
+<div class="container-fluid p-5">
+    <div class="mb-5 text-center">
+        <h5 class="text-primary text-uppercase">Gym Hero Trainers </h5>
+        <h1 class="display-3 text-uppercase mb-0">Show their plans</h1>
+    </div>
+    <div class="row g-5">
+
+        @foreach (var item in (IEnumerable<dynamic>)ViewBag.trainers)
+        {
+            <div class="col-lg-4 col-md-6">
+                <div class="team-item position-relative">
+                    <div class="position-relative overflow-hidden rounded">
+                        <img class="img-fluid w-100" src="~/images/@item.ProfileImage" alt="" style="width: 100%;height: 500px; ">
+                        <div class="team-overlay">
+                            <div class="d-flex align-items-center justify-content-start">
+                                @if(roleId != null)
+                                {
+                                    <a asp-controller="Home" asp-action="ShowPlan" asp-route-trainerId="@item.TrainerId" class="btn btn-danger mx-1" style="font-size: 30px;">Show his plans</a>
+                                }else
+                                {
+                                    <a asp-controller="LoginAndRegister" asp-action="Login" class="btn btn-danger mx-1" style="font-size: 30px;">Show his plans</a>
+                                }
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="position-absolute start-0 bottom-0 w-100 rounded-bottom text-center p-4" style="background: rgba(34, 36, 41, .9);">
+                        <h5 class="text-uppercase text-light">@item.TrainerName</h5>
+                        <p class="text-uppercase text-secondary m-0">Trainer</p>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<!-- Team End -->
+<!-- Testimonial Start -->
+
+<div class="container-fluid p-0 my-5">
+    <div class="row g-0">
+        <div class="col-lg-6" style="min-height: 500px;">
+            <div class="position-relative h-100">
+                <img class="position-absolute w-100 h-100" src="~/homedesign/img/gym.png" style="object-fit: cover;">
+            </div>
+        </div>
+
+        <div class="col-lg-6 bg-dark p-5">
+            <div class="mb-5">
+                <h5 class="text-primary text-uppercase">Testimonial</h5>
+                <h1 class="display-3 text-uppercase text-light mb-0">Our Client Say</h1>
+                @if(roleId != null)
+                {
+                    <a asp-controller="Testimonials" asp-action="Create" class="btn btn-primary py-md-3 px-md-5 me-3">Add testimonial</a>
+                }
+                
+            </div>
+            
+            <div class="owl-carousel testimonial-carousel">
+                @foreach (var item in ViewBag.ApprovedTestimonials)
+                {
+                    <div class="testimonial-item">
+                        <p class="fs-4 fw-normal text-light mb-4"><i class="fa fa-quote-left text-primary me-3"></i>@item.Content</p>
+                        <div class="d-flex align-items-center">
+                            <div class="ps-4">
+                                <h5 class="text-uppercase text-light">@item.User.Profile.Fname</h5>
+                                
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+<!-- Blog Start -->
+
+<!-- Blog End -->

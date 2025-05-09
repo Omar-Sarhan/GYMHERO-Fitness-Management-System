@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Gym.Models.Plan>
+
+@{
+    Layout = "~/views/shared/AdminLayout.cshtml";
+    ViewData["Title"] = "My Plans";
+}
+
+<h1>My Plans</h1>
+
+<p>
+    <a asp-action="Create">New Plan</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Planname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Planname)
+            </td>
+                <td style="word-wrap: break-word; white-space: normal;">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Planid">Edit</a> 
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

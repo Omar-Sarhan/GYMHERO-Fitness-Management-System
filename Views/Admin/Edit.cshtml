@@ -1,0 +1,72 @@
+﻿@model Gym.Models.User
+
+@{
+    Layout = "~/views/shared/AdminLayout.cshtml";
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Userid" />
+            <div class="form-group">
+                <label asp-for="Profile.Fname" class="control-label"></label>
+                <input autocomplete="off" asp-for="Profile.Fname" class="form-control" />
+                <span asp-validation-for="Profile.Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Lname" class="control-label"></label>
+                <input autocomplete="off" asp-for="Profile.Lname" class="form-control" />
+                <span asp-validation-for="Profile.Lname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Gender" class="control-label">Gender</label>
+                <select asp-for="Profile.Gender" class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span asp-validation-for="Profile.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.ImageFile" class="control-label">Image</label>
+                <input autocomplete="off" asp-for="Profile.ImageFile" type="file" class="form-control" />
+                <span asp-validation-for="Profile.ImageFile" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input autocomplete="off" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input autocomplete="off" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Roleid" class="control-label"></label>
+                <select asp-for="Roleid" class="form-control" asp-items="ViewBag.Roleid"></select>
+                <span asp-validation-for="Roleid" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

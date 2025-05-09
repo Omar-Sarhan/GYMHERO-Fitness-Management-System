@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "ShowPlan";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+
+}
+<body>
+    
+    <!-- Hero Start -->
+    
+            <div class="container-fluid bg-primary p-5 bg-hero mb-5">
+                <div class="row py-5">
+                    <div class="col-12 text-center">
+                        <h1 class="display-2 text-uppercase text-white mb-md-4">Trainer Plans</h1>
+                
+                    </div>
+                </div>
+            </div>
+        }
+    <!-- Hero End -->
+    <!-- Class Timetable Start -->
+    <div class="container-fluid p-5">
+        
+        <div class="tab-class ">
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-5">
+                                        @foreach ( var plan in Model)
+                                      {
+
+                                            <div class="card col-lg-3 col-md-4 col-sm-6 py-3 px-2 m-3" style="width: 18rem;">
+                                                        <div class="card-body text-center">
+                                                            <h5 class="card-title">Plan Name : @plan.Planname</h5>
+                                                            <p style="text-align:start;" class="card-text">@plan.Description</p>
+                                                            <h5 class="card-title">Subsicribtion Price : @plan.Price$</h5>
+                                                            <a  asp-controller="Home" asp-action="Cart" asp-route-planid="@plan.Planid" class="btn btn-primary mt-3" style="text-align: center;">Subsicribe</a>
+                                                        </div>
+                                            </div>
+        
+                
+                   
+
+                                       }
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+
+

@@ -1,0 +1,144 @@
+﻿@{
+    Layout = "~/views/shared/AdminLayout.cshtml";
+    
+    var roleId = Context.Session.GetInt32("RoleId");
+
+}
+<!-- partial -->
+@if (roleId == 1) // Admin
+{
+    <div class="row">
+            <div class="col-sm-4 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                    <h5>Number of members</h5>
+                        <div class="row">
+                            <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                                <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">@ViewBag.MemberCount</h2>
+                                   
+                                </div>
+                                
+                            </div>
+                            <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>total revenue</h5>
+                        <div class="row">
+                            <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                                <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">@ViewBag.TotalPrice$</h2>
+                                  
+                                </div>
+                                
+                            </div>
+                            <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+
+    <form asp-controller="Admin" asp-action="Search">
+        <input class="form-control-sm" type="date" name="startDate" />
+        <input class="form-control-sm" type="date" name="endDate" />
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+    <h3 class="my-3">Active Subscriptions</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Member Name</th>
+                <th>Plan Name</th>
+                <th>Trainer Name</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.ActiveSubscriptions != null)
+            {
+                foreach (var sub in ViewBag.ActiveSubscriptions)
+                {
+                    <tr>
+                        
+                        <td>@sub.FullName</td>
+                        <td>@sub.PlanName</td>
+                        <td>@sub.TrainerName</td>
+                        <td>@sub.FromDate.ToShortDateString()</td>
+                        <td>@sub.ToDate.ToShortDateString()</td>
+                        <td>@sub.Price</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7">No subscriptions available.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+
+}else if(roleId == 3)
+{
+    <h3 class="my-3">Active Subscriptions</h3>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Member Name</th>
+                <th>Plan Name</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.submember != null)
+            {
+                foreach (var sub in ViewBag.submember)
+                {
+                    <tr>
+
+                        <td>@sub.FullName</td>
+                        <td>@sub.PlanName</td>
+                        <td>@sub.FromDate.ToShortDateString()</td>
+                        <td>@sub.ToDate.ToShortDateString()</td>
+                        <td>@sub.Price</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7">No subscriptions available.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+        
+
+
+
+    

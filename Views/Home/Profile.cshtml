@@ -1,0 +1,180 @@
+﻿@model Gym.Models.User
+@{
+    var roleid = Context.Session.GetInt32("RoleId");
+    ViewData["Title"] = "Profile";
+    if(roleid == 1 || roleid == 3)
+    {
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    }else if (roleid == 2)
+    {
+        Layout = "~/Views/Shared/HomeLayout.cshtml";
+    }
+
+}
+<head>
+    <style>
+       
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.wrapper{
+    padding: 30px 50px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 600px;
+}
+h4{
+    letter-spacing: -1px;
+    font-weight: 400;
+}
+.img{
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+#img-section p,#deactivate p{
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+#img-section b,#img-section button,#deactivate b{
+    font-size: 14px; 
+}
+
+label{
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+    padding-left: 3px;
+}
+
+.form-control{
+    border-radius: 10px;
+}
+
+input[placeholder]{
+    font-weight: 500;
+}
+
+        input {
+            color: black !important;
+        }
+
+        .btn1 {
+            background-color: #FB5B21;
+            border-color: #FB5B21;
+            color:#fff;
+        }
+
+        .btn1:hover {
+                background-color: #FB5B21 !important;
+                color: #000;
+            }
+.form-control:focus{
+    box-shadow: none;
+    border: 1.5px solid #0779e4;
+}
+select{
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px 10px;
+    /* -webkit-appearance: none; */
+}
+
+
+
+}
+    </style>
+</head>
+<!-- Account -->
+<div class="wrapper bg-white mt-sm-5">
+    <h4 class="pb-4 border-bottom">Account settings</h4>
+    <form asp-action="Profile" enctype="multipart/form-data">
+        <img src="~/Images/@Model.Profile.Imagepath" alt="Profile Photo" class="img-thumbnail" style="width: 150px; height: 150px;">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Userid" />
+        <input  type="hidden" asp-for="Profile.Imagepath" />
+                    <div class="d-flex align-items-start py-3 border-bottom">
+            
+                        <div class="pl-sm-4 pl-2" id="img-section">
+                            <b>Profile Photo</b>
+                            <p>Accepted file type .png. Less than 1MB</p>
+                                <label asp-for="Profile.ImageFile" class="control-label">Image</label>
+                <input autocomplete="off" asp-for="Profile.ImageFile" type="file" />
+                                <span asp-validation-for="Profile.ImageFile" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="py-2">
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                <label asp-for="Profile.Fname">First Name</label>
+                    <input autocomplete="off" asp-for="Profile.Fname" type="text" class="bg-light form-control">
+                                <span asp-validation-for="Profile.Fname" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 pt-md-0 pt-3">
+                                <label asp-for="Profile.Lname">Last Name</label>
+                    <input autocomplete="off" asp-for="Profile.Lname" type="text" class="bg-light form-control">
+                                <span asp-validation-for="Profile.Lname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                <label asp-for="Email">Email Address</label>
+                    <input autocomplete="off" asp-for="Email" type="text" class="bg-light form-control">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Profile.Gender">Gender</label>
+                                <select asp-for="Profile.Gender" class="bg-light">
+                                    <option value="Male" selected>Male</option>
+                                    <option value="Female">Female</option>
+                    
+                                </select>
+                                <span asp-validation-for="Profile.Gender" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                <label asp-for="Password">Password</label>
+                    <input autocomplete="off" asp-for="Password" type="text" class="bg-light form-control">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+            
+                        </div>
+                        <div class="py-3 pb-4 border-bottom">
+                            <button class="btn btn1 mr-3">Save Changes</button>
+            
+                        </div>
+       
+                    </div>
+    </form>
+    
+
+   
+</div>
+
+
+
+    
+    
+    
+    
+    
+
+    
+    
+   
+

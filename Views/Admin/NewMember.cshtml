@@ -1,0 +1,69 @@
+﻿@model Gym.Models.User
+
+@{
+    Layout = "~/views/shared/AdminLayout.cshtml";
+    ViewData["Title"] = "New User";
+}
+
+<h1>New Member</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="NewMember" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Profile.Fname" class="control-label" >First Name</label>
+                <input autocomplete="off" asp-for="Profile.Fname" class="form-control" />
+            
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Lname" class="control-label">Last Name</label>
+                <input autocomplete="off" asp-for="Profile.Lname" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Gender" class="control-label">Gender</label>
+                <select asp-for="Profile.Gender" class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Profile.ImageFile" class="control-label">Image</label>
+                <input autocomplete="off" asp-for="Profile.ImageFile" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input autocomplete="off" asp-for="Email" class="form-control" />
+              
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"  class="control-label">Password</label>
+                <input autocomplete="off" asp-for="Password" class="form-control" />
+               
+            </div>
+            <div class="form-group">
+                <label asp-for="Roleid" class="control-label">Role Name</label>
+                <select asp-for="Roleid"  class="form-control" asp-items="ViewBag.Rolename"></select>
+            </div>
+            
+
+            <div class="form-group">
+                <input type="submit" value="New User" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Items">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
