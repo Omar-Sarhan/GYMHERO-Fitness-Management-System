@@ -1,52 +1,92 @@
-# GYMHERO – Fitness Management System
 
-As part of my training at **Tahaluf Al Emarat Technical Solutions (تحالف الإمارات للحلول التقنية)**, I developed **GYMHERO**, a full-featured fitness management system using **ASP.NET Core MVC**, **Bootstrap**, and **Oracle Database**.
+<details>
+<summary>اضغط لعرض README الكامل</summary>
 
-✅ **Project completed in just 11 days**  
-🗃️ **7 structured database tables**  
+# 🏋️‍♂️ GYMHERO - Fitness Management System
+
+A full-stack fitness management system designed to streamline member, trainer, and admin interactions — built during my training at **Tahaluf Al Emarat Technical Solutions** using modern technologies.
+
+---
+
+## 📁 Project Structure
+
+```
+GYMHERO/
+├── Controllers/
+├── Views/
+├── Models/
+└── wwwroot/
+```
+
+- This project follows the **ASP.NET Core MVC** pattern.
+- Database: Oracle (7 well-structured tables).
+- Fully responsive frontend using **Bootstrap**.
+
+---
+
+## ⚙️ Technologies Used
+
+### Frontend
+- Bootstrap
+- HTML/CSS
+- Razor Views
+
+### Backend
+- ASP.NET Core MVC
+- Oracle Database
+- Entity Framework (Data First)
+- iTextSharp (for generating PDF invoices)
 
 ---
 
 ## 🚀 Key Features
 
-### 👤 Member Role:
-- Register and explore trainers and plans.
-- Subscribe to chosen plans.
-- Receive downloadable PDF invoice upon payment.
-- Provide testimonials (pending admin approval).
+### 👤 Member Role
+- Register & browse fitness plans
+- Subscribe to plans
+- Download PDF invoice upon payment
+- Submit testimonials (pending admin approval)
 
-### 🏋️‍♂️ Trainer Role:
-- Create and manage fitness plans.
-- View and manage subscribed members.
+### 🏋️‍♂️ Trainer Role
+- Create and manage plans
+- Track subscribers
 
-### 🛠️ Admin Role:
-- Monitor subscriptions with date filters.
-- Analyze statistics (revenue, registered users).
-- Manage all users (members, trainers, admins).
-- Approve or reject testimonials.
+### 🛠️ Admin Role
+- Monitor all subscriptions
+- Filter subscriptions by date
+- View statistics (revenue, users)
+- Approve/reject testimonials
+- Manage all users
 
-### 🧑‍🤝‍🧑 Shared Feature:
-- All users can update their profiles and personal info.
-
----
-
-## 🛠️ Technical Stack
-
-- **Frontend**: Bootstrap  
-- **Backend**: ASP.NET Core MVC  
-- **Database**: Oracle
+### 🔄 Shared Features
+- All users can update their profiles
 
 ---
 
-## 🎥 Demo Video
+## 📸 Demo
 
-Check out a demonstration video showcasing GYMHERO's functionality and user interface.  https://www.linkedin.com/posts/omar-kh-sarhan_aspnetcore-bootstrap-webdevelopment-activity-7288671651129421826-ngTy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEy0h5QBB52K9G2YxrycIAGEFg_s-slEgGg
+> 🎥 Watch a full video walkthrough of GYMHERO showcasing its user roles and features. https://drive.google.com/file/d/1hMpl7ZnlCzlNCrfkzcMzAf3wIUq3JJXf/view?usp=sharing
 
 ---
 
-## 📚 What I Learned
+## 👥 Author
 
-This experience taught me valuable skills in:
-- System design under tight deadlines.
-- Structuring efficient databases.
-- Working independently while applying real-world development standards.
+- **Omar Sarhan**
+
+📧 [omar.kh.sarhan@gmail.com](mailto:omar.kh.sarhan@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/omar-kh-sarhan/)
+
+
+---
+
+## 🌟 Show Your Support
+
+If you found this project helpful, give it a ⭐ and share it with others!
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+</details>
